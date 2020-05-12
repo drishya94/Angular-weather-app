@@ -1,0 +1,17 @@
+.bg-forcast{
+	background-color: #050d44f0;
+	padding: 10px;
+	margin-bottom: 20px;
+}
+p{
+	color: #fff;
+	text-align: center;
+}
+.today-weather{
+	margin-top: 40px;
+}
+h1{
+	font-size:23px;
+	color: white;
+	font-weight: 400;
+}

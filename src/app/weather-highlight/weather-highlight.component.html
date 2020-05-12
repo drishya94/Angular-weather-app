@@ -1,0 +1,85 @@
+
+<ng-container *ngFor="let evt of resLocData | keyvalue">
+<h1>{{evt.value.data.name}} , {{evt.value.data.sys.country}}</h1>
+<p class="date">{{evt.value.data.dt | date: 'EEEE d MMMM'}}</p>
+
+<span></span>
+
+<div class="row">
+
+	<div class="col-md-6">
+		<ng-container *ngFor="let item  of evt.value.data.weather | keyvalue">
+
+			<div class="flex-container">
+				<div class="img-wrapper flex-child">
+					<img src="https://openweathermap.org/img/wn/{{item.value.icon}}@2x.png">
+				</div>
+
+				<div class="des-wrapper flex-child">
+					<p class="temp">{{evt.value.data.main.temp  | unixtime : 'K'}}</p>
+					<p class="des">{{item.value.description | titlecase }}<p>
+				</div>
+			</div>
+					
+		</ng-container> 
+	</div>
+
+	<div class="col-md-6">
+
+		<div class="details-wrapper">
+
+			<div class="row">
+				<div class="col-md-4">
+					<p class="cus-margin">{{evt.value.data.main.temp_max | unixtime : 'K'}}</p>
+					<p>High</p>
+				</div>
+				<div class="col-md-4">
+					<p class="cus-margin">{{evt.value.data.wind.speed | windconveter }}</p>
+					<p>Wind</p>
+				</div>
+				<div class="col-md-4">
+					<p class="cus-margin">{{evt.value.data.sys.sunrise | date :'hh:mm'}}</p>
+					<p>Sunrise</p>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-4">
+					<p class="cus-margin">{{evt.value.data.main.temp_min | unixtime : 'K'}}</p>
+					<p>Low</p>
+				</div>
+
+				<div class="col-md-4">
+					<p class="cus-margin">{{evt.value.data.wind.speed}}</p>
+					<p>Wind</p>
+				</div>
+
+				<div class="col-md-4">
+					<p class="cus-margin">{{evt.value.data.sys.sunset | date :'hh:mm'}}</p>
+					<p>Sunset</p>
+				</div>
+
+			</div>
+
+		</div>
+		
+	</div>
+</div>
+
+
+
+
+<!-- 
+
+
+
+
+
+
+
+
+
+
+
+-->
+</ng-container> 

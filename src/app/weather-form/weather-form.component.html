@@ -1,0 +1,25 @@
+<H1 class="text-center">Weather App</H1>
+<div class="container">
+	<form>
+	<label>Select the Location:</label>
+	<select 
+		name="place"
+		ngModel
+		class="form-control" 
+		#place="ngModel"
+		(change)="changeLocation(place)"
+	 >
+	 	<option *ngFor="let item of countries" [value]="item">{{item}}</option>
+	 </select>
+	
+ 		<app-weather-highlight [resLocData]="resLoc"></app-weather-highlight>
+ 		<app-weather-today [resForecastData]="resForecast"></app-weather-today>
+		<!-- <ng-template [ngIf]="hasObject(evt.value.data)">
+
+			
+
+		</ng-template> -->
+
+	
+</form>
+</div>

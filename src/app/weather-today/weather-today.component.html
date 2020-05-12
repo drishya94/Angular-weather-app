@@ -1,0 +1,33 @@
+
+
+
+<div class="today-weather">
+		<h1 *ngIf="hasObject(resForecastData)">Today's Weather</h1>
+
+	<div class="row">
+
+		<ng-container *ngFor="let evt of resForecastData | keyvalue">
+			<ng-container *ngFor="let item of evt.value.data.list | keyvalue">
+				<div class="col-md-2">
+					<div class="bg-forcast">
+
+						<p>{{item.value.dt_txt | date :'shortTime'}}</p><br>
+
+							<ng-container *ngFor="let items of item.value.weather | keyvalue">
+							<img src="https://openweathermap.org/img/wn/{{items.value.icon}}@2x.png">
+							</ng-container>
+
+						<p>{{item.value.main.temp | unixtime : 'K'}} C</p>
+
+					</div>
+				</div>
+			</ng-container>
+		</ng-container>
+
+
+	</div>
+</div>
+	
+
+
+
